@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Botones | Bootstrap vs Tailwind CSS</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Tailwind CSS (CDN Play) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome para iconos adicionales -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <script>
+        // Configuración de Tailwind
+        tailwind.config = {
+            prefix: 'tw-',
+            corePlugins: {
+                preflight: false,
+            },
+            theme: {
+                extend: {
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
+                        'shimmer': 'shimmer 2s infinite linear',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Animaciones base */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px currentColor; }
+            50% { box-shadow: 0 0 40px currentColor; }
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Fondo de partículas animadas -->
+    <div class="particles-container">
+        <div class="particle particle-1"></div>
+        <div class="particle particle-2"></div>
+        <div class="particle particle-3"></div>
+        <div class="particle particle-4"></div>
+        <div class="particle particle-5"></div>
+    </div>
+
+    <!-- Header Hero -->
+    <header class="hero-header">
+        <div class="hero-content">
+            <div class="badge-container">
+                <span class="level-badge">
+                    <i class="fas fa-star me-2"></i>NIVEL BÁSICO
+                </span>
+                <span class="time-badge">
+                    <i class="fas fa-clock me-2"></i>15-20 min
+                </span>
+            </div>
+            <h1>🎨 Galería de Botones</h1>
+            <p class="hero-subtitle">Domina los botones en Bootstrap 5 y Tailwind CSS con ejemplos prácticos</p>
+            <div class="framework-pills">
+                <span class="pill bootstrap-pill">
+                    <i class="fas fa-palette me-2"></i>Bootstrap 5
+                </span>
+                <span class="pill tailwind-pill">
+                    <i class="fas fa-bolt me-2"></i>Tailwind CSS
+                </span>
+            </div>
+            
+            <div class="stats-container">
+                <div class="stat-item">
+                    <span class="stat-number">25+</span>
+                    <span class="stat-label">Ejemplos</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">2</span>
+                    <span class="stat-label">Frameworks</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Práctico</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>¡Explora los ejemplos!</span>
+            <i class="fas fa-chevron-down animate-bounce"></i>
+        </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="framework-nav">
+        <div class="nav-container">
+            <button class="nav-tab active" data-framework="bootstrap">
+                <i class="fas fa-palette"></i>
+                <span>Bootstrap 5</span>
+            </button>
+            <button class="nav-tab" data-framework="tailwind">
+                <i class="fas fa-bolt"></i>
+                <span>Tailwind CSS</span>
+            </button>
+            <button class="nav-tab" data-framework="comparison">
+                <i class="fas fa-balance-scale"></i>
+                <span>Comparación</span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <!-- ==================== BOOTSTRAP SECTION ==================== -->
+        <section id="bootstrap-section" class="framework-section active">
+            <div class="container-fluid px-4 px-lg-5">
+                
+                <!-- Intro Card -->
+                <div class="intro-card bootstrap-accent">
+                    <div class="intro-icon">
+                        <i class="fas fa-palette fa-3x"></i>
+                    </div>
+                    <div class="intro-text">
+                        <h2><i class="fas fa-robot me-2"></i>Botones en Bootstrap 5</h2>
+                        <p>Bootstrap ofrece componentes predefinidos con estilos consistentes. Solo necesitas la clase base <code>btn</code> más una clase de color.</p>
+                        <div class="mt-3">
+                            <span class="tag"><i class="fas fa-check-circle me-1"></i>Rápido</span>
+                            <span class="tag"><i class="fas fa-check-circle me-1"></i>Consistente</span>
+                            <span class="tag"><i class="fas fa-check-circle me-1"></i>Predefinido</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section: Botones Básicos -->
+                <div class="content-section" data-section-number="01">
+                    <div class="section-header">
+                        <div class="section-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <div class="section-title">
+                            <h3>Botones Básicos (Solid)</h3>
+                            <p>Variantes de color con fondo sólido y efectos hover</p>
+                        </div>
+                    </div>
+                    
+                    <div class="demo-card">
+                        <div class="demo-preview">
+                            <button type="button" class="btn btn-primary btn-glow">Primary</button>
+                            <button type="button" class="btn btn-secondary btn-glow">Secondary</button>
+                            <button type="button" class="btn btn-success btn-glow">Success</button>
+                            <button type="button" class="btn btn-danger btn-glow">Danger</button>
+                            <button type="button" class="btn btn-warning btn-glow">Warning</button>
+                            <button type="button" class="btn btn-info btn-glow">Info</button>
+                            <button type="button" class="btn btn-light btn-glow">Light</button>
+                            <button type="button" class="btn btn-dark btn-glow">Dark</button>
+                        </div>
+                        <div class="demo-code">
+                            <div class="code-header">
+                                <span class="code-lang">HTML</span>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i> Copiar
+                                </button>
+                            </div>
+                            <pre><code class="language-html">&lt;!-- Botón Primary --&gt;
+&lt;button class="btn btn-primary"&gt;Primary&lt;/button&gt;
+
+&lt;!-- Botón Success --&gt;
+&lt;button class="btn btn-success"&gt;Success&lt;/button&gt;
+
+&lt;!-- Botón Danger --&gt;
+&lt;button class="btn btn-danger"&gt;Danger&lt;/button&gt;
+
+&lt;!-- Todos los colores disponibles --&gt;
+&lt;button class="btn btn-secondary"&gt;Secondary&lt;/button&gt;
+&lt;button class="btn btn-warning"&gt;Warning&lt;/button&gt;
+&lt;button class="btn btn-info"&gt;Info&lt;/button&gt;
+&lt;button class="btn btn-light"&gt;Light&lt;/button&gt;
+&lt;button class="btn btn-dark"&gt;Dark&lt;/button&gt;</code></pre>
+                        </div>
+                        <div class="explanation-box">
+                            <div class="explanation-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div>
+                                <h4>¿Cómo funciona Bootstrap?</h4>
+                                <p>Bootstrap usa clases predefinidas que aplican estilos completos:</p>
+                                <ul>
+                                    <li><code>btn</code> → Estilo base (padding, border-radius, cursor)</li>
+                                    <li><code>btn-primary</code> → Define colores específicos</li>
+                                    <li>Los estilos se definen en las variables CSS de Bootstrap</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section: Botones Outline -->
+                <div class="content-section" data-section-number="02">
+                    <div class="section-header">
+                        <div class="section-icon">
+                            <i class="fas fa-square"></i>
+                        </div>
+                        <div class="section-title">
+                            <h3>Botones Outline</h3>
+                            <p>Solo borde con fondo transparente, perfecto para acciones secundarias</p>
+                        </div>
+                    </div>
+                    
+                    <div class="demo-card">
+                        <div class="demo-preview">
+                            <button type="button" class="btn btn-outline-primary btn-glow">Primary</button>
+                            <button type="button" class="btn btn-outline-secondary btn-glow">Secondary</button>
+                            <button type="button" class="btn btn-outline-success btn-glow">Success</button>
+                            <button type="button" class="btn btn-outline-danger btn-glow">Danger</button>
+                            <button type="button" class="btn btn-outline-warning btn-glow">Warning</button>
+                            <button type="button" class="btn btn-outline-info btn-glow">Info</button>
+                            <button type="button" class="btn btn-outline-dark btn-glow">Dark</button>
+                        </div>
+                        <div class="demo-code">
+                            <div class="code-header">
+                                <span class="code-lang">HTML</span>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i> Copiar
+                                </button>
+                            </div>
+                            <pre><code class="language-html">&lt;!-- Outline Primary --&gt;
+&lt;button class="btn btn-outline-primary"&gt;Primary&lt;/button&gt;
+
+&lt;!-- Outline Success --&gt;
+&lt;button class="btn btn-outline-success"&gt;Success&lt;/button&gt;
+
+&lt;!-- Outline Danger --&gt;
+&lt;button class="btn btn-outline-danger"&gt;Danger&lt;/button&gt;
+
+&lt;!-- Todos los outlines --&gt;
+&lt;button class="btn btn-outline-secondary"&gt;Secondary&lt;/button&gt;
+&lt;button class="btn btn-outline-warning"&gt;Warning&lt;/button&gt;
+&lt;button class="btn btn-outline-info"&gt;Info&lt;/button&gt;
+&lt;button class="btn btn-outline-dark"&gt;Dark&lt;/button&gt;</code></pre>
+                        </div>
+                        <div class="tip-box">
+                            <i class="fas fa-info-circle"></i>
+                            <p><strong>Tip profesional:</strong> Los botones outline cambian a sólido al hacer hover. Son ideales para formularios o acciones secundarias donde no quieres distraer la atención.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section: Tamaños -->
+                <div class="content-section" data-section-number="03">
+                    <div class="section-header">
+                        <div class="section-icon">
+                            <i class="fas fa-expand-alt"></i>
+                        </div>
+                        <div class="section-title">
+                            <h3>Tamaños de Botones</h3>
+                            <p>Diferentes tamaños para diferentes contextos y jerarquías</p>
+                        </div>
+                    </div>
+                    
+                    <div class="demo-card">
+                        <div class="demo-preview demo-sizes">
+                            <div class="size-group">
+                                <button type="button" class="btn btn-primary btn-lg">
+                                    <i class="fas fa-plus-circle me-2"></i>Botón Grande
+                                </button>
+                                <span class="size-label">btn-lg</span>
+                            </div>
+                            <div class="size-group">
+                                <button type="button" class="btn btn-primary">
+                                    <i class="fas fa-check me-2"></i>Botón Normal
+                                </button>
+                                <span class="size-label">Default</span>
+                            </div>
+                            <div class="size-group">
+                                <button type="button" class="btn btn-primary btn-sm">
+                                    <i class="fas fa-minus me-2"></i>Botón Pequeño
+                                </button>
+                                <span class="size-label">btn-sm</span>
+                            </div>
+                        </div>
+                        <div class="demo-code">
+                            <div class="code-header">
+                                <span class="code-lang">HTML</span>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i> Copiar
+                                </button>
+                            </div>
+                            <pre><code class="language-html">&lt;!-- Botón Grande --&gt;
+&lt;button class="btn btn-primary btn-lg"&gt;
+    &lt;i class="fas fa-plus-circle me-2"&gt;&lt;/i&gt;
+    Botón Grande
+&lt;/button&gt;
+
+&lt;!-- Botón Normal (default) --&gt;
+&lt;button class="btn btn-primary"&gt;
+    &lt;i class="fas fa-check me-2"&gt;&lt;/i&gt;
+    Botón Normal
+&lt;/button&gt;
+
+&lt;!-- Botón Pequeño --&gt;
+&lt;button class="btn btn-primary btn-sm"&gt;
+    &lt;i class="fas fa-minus me-2"&gt;&lt;/i&gt;
+    Botón Pequeño
+&lt;/button&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section: Estados -->
+                <div class="content-section" data-section-number="04">
+                    <div class="section-header">
+                        <div class="section-icon">
+                            <i class="fas fa-toggle-on"></i>
+                        </div>
+                        <div class="section-title">
+                            <h3>Estados de Botones</h3>
+                            <p>Controla el comportamiento con estados activos, deshabilitados y loading</p>
+                        </div>
+                    </div>
+                    
+                    <div class="demo-card">
+                        <div class="demo-preview">
+                            <div class="state-group">
+                                <button type="button" class="btn btn-primary active">Activo</button>
+                                <span class="state-label">Clase: active</span>
+                            </div>
+                            <div class="state-group">
+                                <button type="button" class="btn btn-primary" disabled>Deshabilitado</button>
+                                <span class="state-label">Atributo: disabled</span>
+                            </div>
+                            <div class="state-group">
+                                <button class="btn btn-primary" type="button" disabled>
+                                    <span class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span>
+                                    <span role="status">Cargando...</span>
+                                </button>
+                                <span class="state-label">Con spinner</span>
+                            </div>
+                        </div>
+                        <div class="demo-code">
+                            <div class="code-header">
+                                <span class="code-lang">HTML</span>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i> Copiar
+                                </button>
+                            </div>
+                            <pre><code class="language-html">&lt;!-- Estado activo --&gt;
+&lt;button class="btn btn-primary active"&gt;Activo&lt;/button&gt;
+
+&lt;!-- Estado deshabilitado --&gt;
+&lt;button class="btn btn-primary" disabled&gt;Deshabilitado&lt;/button&gt;
+
+&lt;!-- Estado loading con spinner --&gt;
+&lt;button class="btn btn-primary" type="button" disabled&gt;
+    &lt;span class="spinner-border spinner-border-sm"&gt;&lt;/span&gt;
+    Cargando...
+&lt;/button&gt;</code></pre>
+                        </div>
+                        <div class="tip-box warning">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <p><strong>Importante:</strong> Los botones deshabilitados no son clickeables y tienen menor opacidad para indicar visualmente su estado.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section: Con Iconos -->
+                <div class="content-section" data-section-number="05">
+                    <div class="section-header">
+                        <div class="section-icon">
+                            <i class="fas fa-icons"></i>
+                        </div>
+                        <div class="section-title">
+                            <h3>Botones con Iconos</h3>
+                            <p>Mejora la usabilidad combinando iconos con texto</p>
+                        </div>
+                    </div>
+                    
+                    <div class="demo-card">
+                        <div class="demo-preview">
+                            <button type="button" class="btn btn-primary btn-icon">
+                                <i class="fas fa-download me-2"></i>Descargar
+                            </button>
+                            <button type="button" class="btn btn-success btn-icon">
+                                <i class="fas fa-check-circle me-2"></i>Confirmar
+                            </button>
+                            <button type="button" class="btn btn-danger btn-icon">
+                                <i class="fas fa-trash me-2"></i>Eliminar
+                            </button>
+                            <button type="button" class="btn btn-outline-primary btn-icon">
+                                Siguiente<i class="fas fa-arrow-right ms-2"></i>
+                            </button>
+                            <button type="button" class="btn btn-dark btn-icon">
+                                <i class="fab fa-github"></i>
+                            </button>
+                            <button type="button" class="btn btn-info btn-icon">
+                                <i class="fas fa-share-alt"></i> Compartir
+                            </button>
+                        </div>
+                        <div class="demo-code">
+                            <div class="code-header">
+                                <span class="code-lang">HTML</span>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i> Copiar
+                                </button>
+                            </div>
+                            <pre><code class="language-html">&lt;!-- Icono a la izquierda --&gt;
+&lt;button class="btn btn-primary"&gt;
+    &lt;i class="fas fa-download me-2"&gt;&lt;/i&gt;
+    Descargar
+&lt;/button&gt;
+
+&lt;!-- Icono a la derecha --&gt;
+&lt;button class="btn btn-outline-primary"&gt;
+    Siguiente
+    &lt;i class="fas fa-arrow-right ms-2"&gt;&lt;/i&gt;
+&lt;/button&gt;
+
+&lt;!-- Solo icono --&gt;
+&lt;button class="btn btn-dark"&gt;
+    &lt;i class="fab fa-github"&gt;&lt;/i&gt;
+&lt;/button&gt;
+
+&lt;!-- Utilidades de espaciado --&gt;
+&lt;button class="btn btn-success"&gt;
+    &lt;i class="fas fa-check-circle me-2"&gt;&lt;/i&gt;
+    &lt;span class="ms-1"&gt;Confirmar&lt;/span&gt;
+&lt;/button&gt;</code></pre>
+                        </div>
+                        <div class="explanation-box">
+                            <div class="explanation-icon">
+                                <i class="fas fa-ruler-combined"></i>
+                            </div>
+                            <div>
+                                <h4>Espaciado con utilidades Bootstrap</h4>
+                                <ul>
+                                    <li><code>me-2</code> → Margin end (derecha) de 0.5rem</li>
+                                    <li><code>ms-2</code> → Margin start (izquierda) de 0.5rem</li>
+                                    <li><code>mx-2</code> → Margin horizontal (izquierda y derecha)</li>
+                                    <li><code>my-2</code> → Margin vertical (arriba y abajo)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section: Grupos -->
+                <div class="content-section" data-section-number="06">
+                    <div class="section-header">
+                        <div class="section-icon">
+                            <i class="fas fa-layer-group"></i>
+                        </div>
+                        <div class="section-title">
+                            <h3>Grupos de Botones</h3>
+                            <p>Agrupa botones relacionados para mejorar la experiencia</p>
+                        </div>
+                    </div>
+                    
+                    <div class="demo-card">
+                        <div class="demo-preview demo-column">
+                            <div class="btn-group mb-3" role="group">
+                                <button type="button" class="btn btn-primary">Izquierda</button>
+                                <button type="button" class="btn btn-primary">Centro</button>
+                                <button type="button" class="btn btn-primary">Derecha</button>
+                            </div>
+                            
+                            <div class="btn-group mb-3" role="group">
+                                <button type="button" class="btn btn-outline-primary">
+                                    <i class="fas fa-align-left"></i>
+                                </button>
+                                <button type="button" class="btn btn-outline-primary">
+                                    <i class="fas fa-align-center"></i>
+                                </button>
+                                <button type="button" class="btn btn-outline-primary">
+                                    <i class="fas fa-align-right"></i>
+                                </button>
+                                <button type="button" class="btn btn-outline-primary">
+                                    <i class="fas fa-align-justify"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="btn-group-vertical" role="group">
+                                <button type="button" class="btn btn-outline-success">
+                                    <i class="fas fa-bold"></i> Negrita
+                                </button>
+                                <button type="button" class="btn btn-outline-success">
+                                    <i class="fas fa-italic"></i> Itálica
+                                </button>
+                                <button type="button" class="btn btn-outline-success">
+                                    <i class="fas fa-underline"></i> Subrayado
+                                </button>
+                            </div>
+                        </div>
+                        <div class="demo-code">
+                            <div class="code-header">
+                                <span class="code-lang">HTML</span>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i> Copiar
+                                </button>
+                            </div>
+                            <pre><code class="language-html">&lt;!-- Grupo horizontal --&gt;
+&lt;div class="btn-group" role="group"&gt;
+    &lt;button class="btn btn-primary"&gt;Izquierda&lt;/button&gt;
+    &lt;button class="btn btn-primary"&gt;Centro&lt;/button&gt;
+    &lt;button class="btn btn-primary"&gt;Derecha&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;!-- Grupo con iconos --&gt;
+&lt;div class="btn-group" role="group"&gt;
+    &lt;button class="btn btn-outline-primary"&gt;
+        &lt;i class="fas fa-align-left"&gt;&lt;/i&gt;
+    &lt;/button&gt;
+    &lt;button class="btn btn-outline-primary"&gt;
+        &lt;i class="fas fa-align-center"&gt;&lt;/i&gt;
+    &lt;/button&gt;
+    &lt;button class="btn btn-outline-primary"&gt;
+        &lt;i class="fas fa-align-right"&gt;&lt;/i&gt;
+    &lt;/button&gt;
+&lt;/div&gt;
+
+&lt;!-- Grupo vertical --&gt;
+&lt;div class="btn-group-vertical" role="group"&gt;
+    &lt;button class="btn btn-outline-success"&gt;
+        &lt;i class="fas fa-bold"&gt;&lt;/i&gt; Negrita
+    &lt;/button&gt;
+    &lt;button class="btn btn-outline-success"&gt;
+        &lt;i class="fas fa-italic"&gt;&lt;/i&gt; Itálica
+    &lt;/button&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+                        <div class="tip-box">
+                            <i class="fas fa-users"></i>
+                            <p><strong>Accesibilidad:</strong> Siempre usa <code>role="group"</code> en los grupos de botones para mejorar la accesibilidad con lectores de pantalla.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==================== TAILWIND SECTION ==================== -->
+        <section id="tailwind-section" class="framework-section">
+            <div class="container-fluid px-4 px-lg-5">
+                
+                <!-- Intro Card -->
+                <div class="intro-card tailwind-accent">
+                    <div class="intro-icon">
+                        <i class="fas fa-bolt fa-3x"></i>
+                    </div>
+                    <div class="intro-text">
+                        <h2><i class="fas fa-cogs me-2"></i>Botones en Tailwind CSS</h2>
+                        <p>Tailwind te da control total construyendo cada botón con clases de utilidad. No hay componentes predefinidos.</p>
+                        <div class="mt-3">
+                            <span class="tag"><i class="fas fa-check-circle me-1"></i>Personalizable</span>
+                            <span class="tag"><i class="fas fa-check-circle me-1"></i>Flexible</span>
+                            <span class="tag"><i class="fas fa-check-circle me-1"></i>Único</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section: Botones Básicos -->
+                <div class="content-section" data-section-number="01">
+                    <div class="section-header">
+                        <div class="section-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <div class="section-title">
+                            <h3>Botones Básicos (Solid)</h3>
+                            <p>Construye desde cero combinando clases de utilidad</p>
+                        </div>
+                    </div>
+                    
+                    <div class="demo-card">
+                        <div class="demo-preview">
+                            <button class="tw-bg-blue-500 tw-hover:bg-blue-600 tw-text-white tw-font-semibold tw-py-3 tw-px-6 tw-rounded-lg tw-transition-all tw-duration-300 tw-shadow-lg hover:tw-shadow-xl">Primary</button>
+                            <button class="tw-bg-purple-600 tw-hover:bg-purple-700 tw-text-white tw-font-semibold tw-py-3 tw-px-6 tw-rounded-lg tw-transition-all tw-duration-300 tw-shadow-lg hover:tw-shadow-xl">Secondary</button>
+                            <button class="tw-bg-emerald-500 tw-hover:bg-emerald-600 tw-text-white tw-font-semibold tw-py-3 tw-px-6 tw-rounded-lg tw-transition-all tw-duration-300 tw-shadow-lg hover:tw-shadow-xl">Success</button>
+                            <button class="tw-bg-rose-500 tw-hover:bg-rose-600 tw-text-white tw-font-semibold tw-py-3 tw-px-6 tw-rounded-lg tw-transition-all tw-duration-300 tw-shadow-lg hover:tw-shadow-xl">Danger</button>
+                            <button class="tw-bg-amber-500 tw-hover:bg-amber-600 tw-text-gray-900 tw-font-semibold tw-py-3 tw-px-6 tw-rounded-lg tw-transition-all tw-duration-300 tw-shadow-lg hover:tw-shadow-xl">Warning</button>
+                            <button class="tw-bg-cyan-500 tw-hover:bg-cyan-600 tw-text-white tw-font-semibold tw-py-3 tw-px-6 tw-rounded-lg tw-transition-all tw-duration-300 tw-shadow-lg hover:tw-shadow-xl">Info</button>
+                            <button class="tw-bg-gray-800 tw-hover:bg-gray-900 tw-text-white tw-font-semibold tw-py-3 tw-px-6 tw-rounded-lg tw-transition-all tw-duration-300 tw-shadow-lg hover:tw-shadow-xl">Dark</button>
+                        </div>
+                        <div class="demo-code">
+                            <div class="code-header">
+                                <span class="code-lang">HTML</span>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i> Copiar
+                                </button>
+                            </div>
+                            <pre><code class="language-html">&lt;!-- Botón Primary --&gt;
+&lt;button class="bg-blue-500 hover:bg-blue-600 text-white 
+               font-semibold py-3 px-6 rounded-lg 
+               transition-all duration-300 
+               shadow-lg hover:shadow-xl"&gt;
+    Primary
+&lt;/button&gt;
+
+&lt;!-- Botón Success --&gt;
+&lt;button class="bg-emerald-500 hover:bg-emerald-600 
+               text-white font-semibold py-3 px-6 
+               rounded-lg transition-all duration-300 
+               shadow-lg hover:shadow-xl"&gt;
+    Success
+&lt;/button&gt;
+
+&lt;!-- Botón Danger --&gt;
+&lt;button class="bg-rose-500 hover:bg-rose-600 
+               text-white font-semibold py-3 px-6 
+               rounded-lg transition-all duration-300 
+               shadow-lg hover:shadow-xl"&gt;
+    Danger
+&lt;/button&gt;</code></pre>
+                        </div>
+                        <div class="explanation-box tailwind-explanation">
+                            <div class="explanation-icon">
+                                <i class="fas fa-puzzle-piece"></i>
+                            </div>
+                            <div>
+                                <h4>Anatomía de un botón Tailwind</h4>
+                                <div class="anatomy-grid">
+                                    <div class="anatomy-item">
+                                        <code>bg-blue-500</code>
+                                        <span>Color de fondo</span>
+                                    </div>
+                                    <div class="anatomy-item">
+                                        <code>hover:bg-blue-600</code>
+                                        <span>Color en hover</span>
+                                    </div>
+                                    <div class="anatomy-item">
+                                        <code>text-white</code>
+                                        <span>Color del texto</span>
+                                    </div>
+                                    <div class="anatomy-item">
+                                        <code>font-semibold</code>
+                                        <span>Peso de fuente</span>
+                                    </div>
+                                    <div class="anatomy-item">
+                                        <code>py-3 px-6</code>
+                                        <span>Padding vertical/horizontal</span>
+                                    </div>
+                                    <div class="anatomy-item">
+                                        <code>rounded-lg</code>
+                                        <span>Border radius grande</span>
+                                    </div>
+                                    <div class="anatomy-item">
+                                        <code>transition-all</code>
+                                        <span>Transición suave</span>
+                                    </div>
+                                    <div class="anatomy-item">
+                                        <code>shadow-lg</code>
+                                        <span>Sombra por defecto</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section: Botones Outline -->
+                <div class="content-section" data-section-number="02">
+                    <div class="section-header">
+                        <div class="section-icon">
+                            <i class="fas fa-square"></i>
+                        </div>
+                        <div class="section-title">
+                            <h3>Botones Outline</h3>
+                            <p>Fondo transparente con borde - Construye tu propio patrón</p>
+                        </div>
+                    </div>
+                    
+                    <div class="demo-card">
+                        <div class="demo-preview">
+                            <button class="tw-bg-transparent tw-hover:bg-blue-500 tw-text-blue-500 tw-hover:text-white tw-font-semibold tw-py-3 tw-px-6 tw-border-2 tw-border-blue-500 tw-rounded-lg tw-transition-all tw-duration-300">Primary</button>
+                            <button class="tw-bg-transparent tw-hover:bg-emerald-500 tw-text-emerald-500 tw-hover:text-white tw-font-semibold tw-py-3 tw-px-6 tw-border-2 tw-border-emerald-500 tw-rounded-lg tw-transition-all tw-duration-300">Success</button>
+                            <button class="tw-bg-transparent tw-hover:bg-rose-500 tw-text-rose-500 tw-hover:text-white tw-font-semibold tw-py-3 tw-px-6 tw-border-2 tw-border-rose-500 tw-rounded-lg tw-transition-all tw-duration-300">Danger</button>
+                            <button class="tw-bg-transparent tw-hover:bg-amber-500 tw-text-amber-500 tw-hover:text-gray-900 tw-font-semibold tw-py-3 tw-px-6 tw-border-2 tw-border-amber-500 tw-rounded-lg tw-transition-all tw-duration-300">Warning</button>
+                            <button class="tw-bg-transparent tw-hover:bg-gray-800 tw-text-gray-800 tw-hover:text-white tw-font-semibold tw-py-3 tw-px-6 tw-border-2 tw-border-gray-800 tw-rounded-lg tw-transition-all tw-duration-300">Dark</button>
+                        </div>
+                        <div class="demo-code">
+                            <div class="code-header">
+                                <span class="code-lang">HTML</span>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i> Copiar
+                                </button>
+                            </div>
+                            <pre><code class="language-html">&lt;!-- Outline Primary --&gt;
+&lt;button class="bg-transparent hover:bg-blue-500 
+               text-blue-500 hover:text-white 
+               font-semibold py-3 px-6 
+               border-2 border-blue-500 rounded-lg 
+               transition-all duration-300"&gt;
+    Primary
+&lt;/button&gt;
+
+&lt;!-- Outline Success --&gt;
+&lt;button class="bg-transparent hover:bg-emerald-500 
+               text-emerald-500 hover:text-white 
+               font-semibold py-3 px-6 
+               border-2 border-emerald-500 rounded-lg 
+               transition-all duration-300"&gt;
+    Success
+&lt;/button&gt;
+
+&lt;!-- Outline Danger --&gt;
+&lt;button class="bg-transparent hover:bg-rose-500 
+               text-rose-500 hover:text-white 
+               font-semibold py-3 px-6 
+               border-2 border-rose-500 rounded-lg 
+               transition-all duration-300"&gt;
+    Danger
+&lt;/button&gt;</code></pre>
+                        </div>
+                        <div class="tip-box tailwind-tip">
+                            <i class="fas fa-magic"></i>
+                            <p><strong>Patrón Tailwind:</strong> <code>bg-transparent</code> + <code>border-2</code> + <code>hover:bg-{color}</code> + <code>hover:text-{color}</code>. ¡Puedes personalizar cada parte!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section: Tamaños -->
+                <div class="content-section" data-section-number="03">
+                    <div class="section-header">
+                        <div class="section-icon">
+                            <i class="fas fa-expand-alt"></i>
+                        </div>
+                        <div class="section-title">
+                            <h3>Tamaños de Botones</h3>
+                            <p>Ajusta padding y texto para diferentes tamaños</p>
+                        </div>
+                    </div>
+                    
+                    <div class="demo-card">
+                        <div class="demo-preview demo-sizes">
+                            <div class="size-group">
+                                <button class="tw-bg-blue-500 tw-hover:bg-blue-600 tw-text-white tw-font-semibold tw-py-4 tw-px-8 tw-text-xl tw-rounded-xl tw-transition-all tw-duration-300 tw-shadow-xl hover:tw-shadow-2xl">Grande</button>
+                                <span class="size-label">py-4 px-8 text-xl</span>
+                            </div>
+                            <div class="size-group">
+                                <button class="tw-bg-blue-500 tw-hover:bg-blue-600 tw-text-white tw-font-semibold tw-py-3 tw-px-6 tw-rounded-lg tw-transition-all tw-duration-300 tw-shadow-lg hover:tw-shadow-xl">Normal</button>
+                                <span class="size-label">py-3 px-6</span>
+                            </div>
+                            <div class="size-group">
+                                <button class="tw-bg-blue-500 tw-hover:bg-blue-600 tw-text-white tw-font-semibold tw-py-2 tw-px-4 tw-text-sm tw-rounded-md tw-transition-all tw-duration-300 tw-shadow hover:tw-shadow-lg">Pequeño</button>
+                                <span class="size-label">py-2 px-4 text-sm</span>
+                            </div>
+                            <div class="size-group">
+                                <button class="tw-bg-blue-500 tw-hover:bg-blue-600 tw-text-white tw-font-semibold tw-py-1 tw-px-3 tw-text-xs tw-rounded tw-transition-all tw-duration-300">Extra pequeño</button>
+                                <span class="size-label">py-1 px-3 text-xs</span>
+                            </div>
+                        </div>
+                        <div class="demo-code">
+                            <div class="code-header">
+                                <span class="code-lang">HTML</span>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i> Copiar
+                                </button>
+                            </div>
+                            <pre><code class="language-html">&lt;!-- Grande --&gt;
+&lt;button class="bg-blue-500 hover:bg-blue-600 
+               text-white font-semibold 
+               py-4 px-8 text-xl rounded-xl 
+               transition-all duration-300 
+               shadow-xl hover:shadow-2xl"&gt;
+    Grande
+&lt;/button&gt;
+
+&lt;!-- Normal --&gt;
+&lt;button class="bg-blue-500 hover:bg-blue-600 
+               text-white font-semibold 
+               py-3 px-6 rounded-lg 
+               transition-all duration-300 
+               shadow-lg hover:shadow-xl"&gt;
+    Normal
+&lt;/button&gt;
+
+&lt;!-- Pequeño --&gt;
+&lt;button class="bg-blue-500 hover:bg-blue-600 
+               text-white font-semibold 
+               py-2 px-4 text-sm rounded-md 
+               transition-all duration-300 
+               shadow hover:shadow-lg"&gt;
+    Pequeño
+&lt;/button&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section: Border Radius -->
+                <div class="content-section" data-section-number="04">
+                    <div class="section-header">
+                        <div class="section-icon">
+                            <i class="fas fa-circle"></i>
+                        </div>
+                        <div class="section-title">
+                            <h3>Variantes de Bordes</h3>
+                            <p>Control total sobre el border-radius</p>
+                        </div>
+                    </div>
+                    
+                    <div class="demo-card">
+                        <div class="demo-preview">
+                            <button class="tw-bg-purple-600 tw-hover:bg-purple-700 tw-text-white tw-font-semibold tw-py-3 tw-px-6 tw-rounded-none tw-transition-all tw-duration-300">rounded-none</button>
+                            <button class="tw-bg-purple-600 tw-hover:bg-purple-700 tw-text-white tw-font-semibold tw-py-3 tw-px-6 tw-rounded-sm tw-transition-all tw-duration-300">rounded-sm</button>
+                            <button class="tw-bg-purple-600 tw-hover:bg-purple-700 tw-text-white tw-font-semibold tw-py-3 tw-px-6 tw-rounded tw-transition-all tw-duration-300">rounded</button>
+                            <button class="tw-bg-purple-600 tw-hover:bg-purple-700 tw-text-white tw-font-semibold tw-py-3 tw-px-6 tw-rounded-md tw-transition-all tw-duration-300">rounded-md</button>
+                            <button class="tw-bg-purple-600 tw-hover:bg-purple-700 tw-text-white tw-font-semibold tw-py-3 tw-px-6 tw-rounded-lg tw-transition-all tw-duration-300">rounded-lg</button>
+                            <button class="tw-bg-purple-600 tw-hover:bg-purple-700 tw-text-white tw-font-semibold tw-py-3 tw-px-6 tw-rounded-xl tw-transition-all tw-duration-300">rounded-xl</button>
+                            <button class="tw-bg-purple-600 tw-hover:bg-purple-700 tw-text-white tw-font-semibold tw-py-3 tw-px-6 tw-rounded-2xl tw-transition-all tw-duration-300">rounded-2xl</button>
+                            <button class="tw-bg-purple-600 tw-hover:bg-purple-700 tw-text-white tw-font-semibold tw-py-3 tw-px-6 tw-rounded-full tw-transition-all tw-duration-300">rounded-full</button>
+                        </div>
+                        <div class="demo-code">
+                            <div class="code-header">
+                                <span class="code-lang">HTML</span>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i> Copiar
+                                </button>
+                            </div>
+                            <pre><code class="language-html">&lt;!-- Sin bordes --&gt;
+&lt;button class="... rounded-none"&gt;Sin bordes&lt;/button&gt;
+
+&lt;!-- Bordes pequeños --&gt;
+&lt;button class="... rounded-sm"&gt;Borde pequeño&lt;/button&gt;
+
+&lt;!-- Bordes normales --&gt;
+&lt;button class="... rounded"&gt;Borde normal&lt;/button&gt;
+
+&lt;!-- Bordes grandes --&gt;
+&lt;button class="... rounded-lg"&gt;Borde grande&lt;/button&gt;
+
+&lt;!-- Bordes extra grandes --&gt;
+&lt;button class="... rounded-xl"&gt;Borde XL&lt;/button&gt;
+
+&lt;!-- Bordes circulares --&gt;
+&lt;button class="... rounded-full"&gt;Circular&lt;/button&gt;</code></pre>
+                        </div>
+                        <div class="tip-box">
+                            <i class="fas fa-shapes"></i>
+                            <p><strong>Tip:</strong> Usa <code>rounded-full</code> para botones circulares o pastillas perfectas. Ideal para botones de iconos.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section: Estados y Efectos -->
+                <div class="content-section" data-section-number="05">
+                    <div class="section-header">
+                        <div class="section-icon">
+                            <i class="fas fa-toggle-on"></i>
+                        </div>
+                        <div class="section-title">
+                            <h3>Estados y Efectos</h3>
+                            <p>Hover, focus, active, disabled y efectos especiales</p>
+                        </div>
+                    </div>
+                    
+                    <div class="demo-card">
+                        <div class="demo-preview">
+                            <button class="tw-bg-blue-500 tw-hover:bg-blue-600 tw-active:bg-blue-700 tw-focus:outline-none tw-focus:ring-4 tw-focus:ring-blue-300 tw-text-white tw-font-semibold tw-py-3 tw-px-6 tw-rounded-lg tw-transition-all tw-duration-300">Con focus ring</button>
+                            <button class="tw-bg-blue-500 tw-hover:bg-blue-600 tw-hover:scale-105 tw-active:scale-95 tw-text-white tw-font-semibold tw-py-3 tw-px-6 tw-rounded-lg tw-transition-all tw-duration-300 tw-transform">Con scale</button>
+                            <button class="tw-bg-blue-500 tw-hover:shadow-lg tw-hover:shadow-blue-500/50 tw-text-white tw-font-semibold tw-py-3 tw-px-6 tw-rounded-lg tw-transition-all tw-duration-300">Con shadow</button>
+                            <button class="tw-bg-blue-300 tw-text-blue-100 tw-font-semibold tw-py-3 tw-px-6 tw-rounded-lg tw-cursor-not-allowed tw-opacity-60" disabled>Disabled</button>
+                            <button class="tw-bg-gradient-to-r tw-from-blue-500 tw-to-purple-600 tw-hover:from-blue-600 tw-hover:to-purple-700 tw-text-white tw-font-semibold tw-py-3 tw-px-6 tw-rounded-lg tw-transition-all tw-duration-300">Gradiente</button>
+                        </div>
+                        <div class="demo-code">
+                            <div class="code-header">
+                                <span class="code-lang">HTML</span>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i> Copiar
+                                </button>
+                            </div>
+                            <pre><code class="language-html">&lt;!-- Con focus ring --&gt;
+&lt;button class="... focus:outline-none focus:ring-4 
+               focus:ring-blue-300"&gt;
+    Con focus ring
+&lt;/button&gt;
+
+&lt;!-- Con efecto scale --&gt;
+&lt;button class="... hover:scale-105 active:scale-95 
+               transform"&gt;
+    Con scale
+&lt;/button&gt;
+
+&lt;!-- Con shadow en hover --&gt;
+&lt;button class="... hover:shadow-lg hover:shadow-blue-500/50"&gt;
+    Con shadow
+&lt;/button&gt;
+
+&lt;!-- Disabled --&gt;
+&lt;button class="... cursor-not-allowed opacity-60" disabled&gt;
+    Disabled
+&lt;/button&gt;
+
+&lt;!-- Con gradiente --&gt;
+&lt;button class="... bg-gradient-to-r from-blue-500 
+               to-purple-600 hover:from-blue-600 
+               hover:to-purple-700"&gt;
+    Gradiente
+&lt;/button&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section: Con Iconos -->
+                <div class="content-section" data-section-number="06">
+                    <div class="section-header">
+                        <div class="section-icon">
+                            <i class="fas fa-icons"></i>
+                        </div>
+                        <div class="section-title">
+                            <h3>Botones con Iconos</h3>
+                            <p>Usa flexbox para alinear iconos y texto perfectamente</p>
+                        </div>
+                    </div>
+                    
+                    <div class="demo-card">
+                        <div class="demo-preview">
+                            <button class="tw-bg-blue-500 tw-hover:bg-blue-600 tw-text-white tw-font-semibold tw-py-3 tw-px-6 tw-rounded-lg tw-transition-all tw-duration-300 tw-inline-flex tw-items-center tw-justify-center tw-gap-2">
+                                <i class="fas fa-download"></i>
+                                <span>Descargar</span>
+                            </button>
+                            <button class="tw-bg-emerald-500 tw-hover:bg-emerald-600 tw-text-white tw-font-semibold tw-py-3 tw-px-6 tw-rounded-lg tw-transition-all tw-duration-300 tw-inline-flex tw-items-center tw-justify-center tw-gap-2">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Confirmar</span>
+                            </button>
+                            <button class="tw-bg-transparent tw-hover:bg-blue-500 tw-text-blue-500 tw-hover:text-white tw-font-semibold tw-py-3 tw-px-6 tw-border-2 tw-border-blue-500 tw-rounded-lg tw-transition-all tw-duration-300 tw-inline-flex tw-items-center tw-justify-center tw-gap-2">
+                                <span>Siguiente</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                            <button class="tw-bg-gray-800 tw-hover:bg-gray-900 tw-text-white tw-p-4 tw-rounded-full tw-transition-all tw-duration-300 tw-inline-flex tw-items-center tw-justify-center">
+                                <i class="fab fa-github tw-text-xl"></i>
+                            </button>
+                            <button class="tw-bg-rose-500 tw-hover:bg-rose-600 tw-text-white tw-font-semibold tw-py-3 tw-px-6 tw-rounded-lg tw-transition-all tw-duration-300 tw-inline-flex tw-items-center tw-justify-center tw-gap-2">
+                                <i class="fas fa-trash"></i>
+                                <span>Eliminar</span>
+                            </button>
+                        </div>
+                        <div class="demo-code">
+                            <div class="code-header">
+                                <span class="code-lang">HTML</span>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i> Copiar
+                                </button>
+                            </div>
+                            <pre><code class="language-html">&lt;!-- Con inline-flex y gap --&gt;
+&lt;button class="... inline-flex items-center 
+               justify-center gap-2"&gt;
+    &lt;i class="fas fa-download"&gt;&lt;/i&gt;
+    &lt;span&gt;Descargar&lt;/span&gt;
+&lt;/button&gt;
+
+&lt;!-- Icono a la derecha --&gt;
+&lt;button class="... inline-flex items-center 
+               justify-center gap-2"&gt;
+    &lt;span&gt;Siguiente&lt;/span&gt;
+    &lt;i class="fas fa-arrow-right"&gt;&lt;/i&gt;
+&lt;/button&gt;
+
+&lt;!-- Botón circular solo icono --&gt;
+&lt;button class="... p-4 rounded-full 
+               inline-flex items-center justify-center"&gt;
+    &lt;i class="fab fa-github text-xl"&gt;&lt;/i&gt;
+&lt;/button&gt;</code></pre>
+                        </div>
+                        <div class="tip-box tailwind-tip">
+                            <i class="fas fa-align-left"></i>
+                            <p><strong>Clave:</strong> <code>inline-flex items-center justify-center gap-2</code> alinea icono y texto perfectamente con espaciado automático.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section: Gradientes -->
+                <div class="content-section" data-section-number="07">
+                    <div class="section-header">
+                        <div class="section-icon">
+                            <i class="fas fa-fill-drip"></i>
+                        </div>
+                        <div class="section-title">
+                            <h3>Botones con Gradientes</h3>
+                            <p>Crea efectos de gradiente únicos y modernos</p>
+                        </div>
+                    </div>
+                    
+                    <div class="demo-card">
+                        <div class="demo-preview">
+                            <button class="tw-bg-gradient-to-r tw-from-blue-500 tw-to-purple-600 tw-hover:from-blue-600 tw-hover:to-purple-700 tw-text-white tw-font-semibold tw-py-3 tw-px-8 tw-rounded-xl tw-transition-all tw-duration-300 tw-shadow-lg hover:tw-shadow-xl">Blue → Purple</button>
+                            <button class="tw-bg-gradient-to-r tw-from-pink-500 tw-to-orange-400 tw-hover:from-pink-600 tw-hover:to-orange-500 tw-text-white tw-font-semibold tw-py-3 tw-px-8 tw-rounded-xl tw-transition-all tw-duration-300 tw-shadow-lg hover:tw-shadow-xl">Pink → Orange</button>
+                            <button class="tw-bg-gradient-to-r tw-from-emerald-400 tw-to-cyan-500 tw-hover:from-emerald-500 tw-hover:to-cyan-600 tw-text-white tw-font-semibold tw-py-3 tw-px-8 tw-rounded-xl tw-transition-all tw-duration-300 tw-shadow-lg hover:tw-shadow-xl">Green → Cyan</button>
+                            <button class="tw-bg-gradient-to-r tw-from-rose-500 tw-to-pink-500 tw-hover:from-rose-600 tw-hover:to-pink-600 tw-text-white tw-font-semibold tw-py-3 tw-px-8 tw-rounded-xl tw-transition-all tw-duration-300 tw-shadow-lg hover:tw-shadow-xl">Rose → Pink</button>
+                            <button class="tw-bg-gradient-to-r tw-from-amber-400 tw-to-yellow-500 tw-hover:from-amber-500 tw-hover:to-yellow-600 tw-text-gray-900 tw-font-semibold tw-py-3 tw-px-8 tw-rounded-xl tw-transition-all tw-duration-300 tw-shadow-lg hover:tw-shadow-xl">Amber → Yellow</button>
+                        </div>
+                        <div class="demo-code">
+                            <div class="code-header">
+                                <span class="code-lang">HTML</span>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i> Copiar
+                                </button>
+                            </div>
+                            <pre><code class="language-html">&lt;!-- Gradiente Blue → Purple --&gt;
+&lt;button class="bg-gradient-to-r from-blue-500 to-purple-600 
+               hover:from-blue-600 hover:to-purple-700
+               text-white font-semibold py-3 px-8 
+               rounded-xl transition-all duration-300 
+               shadow-lg hover:shadow-xl"&gt;
+    Blue → Purple
+&lt;/button&gt;
+
+&lt;!-- Gradiente Pink → Orange --&gt;
+&lt;button class="bg-gradient-to-r from-pink-500 to-orange-400 
+               hover:from-pink-600 hover:to-orange-500
+               text-white font-semibold py-3 px-8 
+               rounded-xl transition-all duration-300 
+               shadow-lg hover:shadow-xl"&gt;
+    Pink → Orange
+&lt;/button&gt;
+
+&lt;!-- Gradiente Green → Cyan --&gt;
+&lt;button class="bg-gradient-to-r from-emerald-400 to-cyan-500 
+               hover:from-emerald-500 hover:to-cyan-600
+               text-white font-semibold py-3 px-8 
+               rounded-xl transition-all duration-300 
+               shadow-lg hover:shadow-xl"&gt;
+    Green → Cyan
+&lt;/button&gt;</code></pre>
+                        </div>
+                        <div class="explanation-box">
+                            <div class="explanation-icon">
+                                <i class="fas fa-palette"></i>
+                            </div>
+                            <div>
+                                <h4>Gradientes en Tailwind</h4>
+                                <ul>
+                                    <li><code>bg-gradient-to-r</code> → Gradiente de izquierda a derecha</li>
+                                    <li><code>from-{color}</code> → Color de inicio del gradiente</li>
+                                    <li><code>to-{color}</code> → Color de fin del gradiente</li>
+                                    <li><code>hover:from-{color}</code> → Cambia color de inicio en hover</li>
+                                    <li><code>hover:to-{color}</code> → Cambia color de fin en hover</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==================== COMPARISON SECTION ==================== -->
+        <section id="comparison-section" class="framework-section">
+            <div class="container-fluid px-4 px-lg-5">
+                
+                <div class="comparison-header">
+                    <div class="comparison-icon">
+                        <i class="fas fa-balance-scale-right fa-3x"></i>
+                    </div>
+                    <h2>Comparación Lado a Lado</h2>
+                    <p>El mismo botón implementado en ambos frameworks - ¡Elige tu favorito!</p>
+                </div>
+
+                <!-- Comparison Cards -->
+                <div class="comparison-grid">
+                    
+                    <!-- Primary Button -->
+                    <div class="comparison-card">
+                        <h3><i class="fas fa-star me-2"></i>Botón Primary</h3>
+                        <div class="comparison-row">
+                            <div class="comparison-item bootstrap-bg">
+                                <span class="framework-label">
+                                    <i class="fas fa-palette me-1"></i>Bootstrap
+                                </span>
+                                <button class="btn btn-primary btn-glow">Primary</button>
+                                <code>btn btn-primary</code>
+                                <div class="comparison-stats">
+                                    <span class="stat">2 clases</span>
+                                    <span class="stat">Rápido</span>
+                                    <span class="stat">Consistente</span>
+                                </div>
+                            </div>
+                            <div class="comparison-item tailwind-bg">
+                                <span class="framework-label">
+                                    <i class="fas fa-bolt me-1"></i>Tailwind
+                                </span>
+                                <button class="tw-bg-blue-500 tw-hover:bg-blue-600 tw-text-white tw-font-semibold tw-py-3 tw-px-6 tw-rounded-lg tw-transition-all tw-duration-300 tw-shadow-lg hover:tw-shadow-xl">Primary</button>
+                                <code>bg-blue-500 hover:bg-blue-600...</code>
+                                <div class="comparison-stats">
+                                    <span class="stat">8+ clases</span>
+                                    <span class="stat">Personalizable</span>
+                                    <span class="stat">Flexible</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Outline Button -->
+                    <div class="comparison-card">
+                        <h3><i class="fas fa-square me-2"></i>Botón Outline</h3>
+                        <div class="comparison-row">
+                            <div class="comparison-item bootstrap-bg">
+                                <span class="framework-label">
+                                    <i class="fas fa-palette me-1"></i>Bootstrap
+                                </span>
+                                <button class="btn btn-outline-success btn-glow">Success</button>
+                                <code>btn btn-outline-success</code>
+                                <div class="comparison-stats">
+                                    <span class="stat">2 clases</span>
+                                    <span class="stat">Predefinido</span>
+                                    <span class="stat">Consistente</span>
+                                </div>
+                            </div>
+                            <div class="comparison-item tailwind-bg">
+                                <span class="framework-label">
+                                    <i class="fas fa-bolt me-1"></i>Tailwind
+                                </span>
+                                <button class="tw-bg-transparent tw-hover:bg-emerald-500 tw-text-emerald-500 tw-hover:text-white tw-font-semibold tw-py-3 tw-px-6 tw-border-2 tw-border-emerald-500 tw-rounded-lg tw-transition-all tw-duration-300">Success</button>
+                                <code>bg-transparent border-2...</code>
+                                <div class="comparison-stats">
+                                    <span class="stat">10+ clases</span>
+                                    <span class="stat">Control total</span>
+                                    <span class="stat">Personalizable</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Button with Icon -->
+                    <div class="comparison-card">
+                        <h3><i class="fas fa-icons me-2"></i>Con Icono</h3>
+                        <div class="comparison-row">
+                            <div class="comparison-item bootstrap-bg">
+                                <span class="framework-label">
+                                    <i class="fas fa-palette me-1"></i>Bootstrap
+                                </span>
+                                <button class="btn btn-danger btn-glow">
+                                    <i class="fas fa-trash me-2"></i>Eliminar
+                                </button>
+                                <code>btn btn-danger + me-2</code>
+                                <div class="comparison-stats">
+                                    <span class="stat">Clases predefinidas</span>
+                                    <span class="stat">Iconos incluidos</span>
+                                    <span class="stat">Fácil de usar</span>
+                                </div>
+                            </div>
+                            <div class="comparison-item tailwind-bg">
+                                <span class="framework-label">
+                                    <i class="fas fa-bolt me-1"></i>Tailwind
+                                </span>
+                                <button class="tw-bg-rose-500 tw-hover:bg-rose-600 tw-text-white tw-font-semibold tw-py-3 tw-px-6 tw-rounded-lg tw-transition-all tw-duration-300 tw-inline-flex tw-items-center tw-justify-center tw-gap-2">
+                                    <i class="fas fa-trash"></i>
+                                    <span>Eliminar</span>
+                                </button>
+                                <code>inline-flex items-center gap-2</code>
+                                <div class="comparison-stats">
+                                    <span class="stat">Clases de utilidad</span>
+                                    <span class="stat">Flexbox incluido</span>
+                                    <span class="stat">Alienación perfecta</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Summary Table -->
+                <div class="summary-section">
+                    <h3><i class="fas fa-chart-bar me-2"></i>Resumen de Diferencias</h3>
+                    <div class="summary-table">
+                        <div class="summary-row header">
+                            <div>Aspecto</div>
+                            <div><i class="fas fa-palette"></i> Bootstrap 5</div>
+                            <div><i class="fas fa-bolt"></i> Tailwind CSS</div>
+                        </div>
+                        <div class="summary-row">
+                            <div><i class="fas fa-code me-2"></i>Clases necesarias</div>
+                            <div class="highlight-green">2-3 clases</div>
+                            <div class="highlight-orange">6-12 clases</div>
+                        </div>
+                        <div class="summary-row">
+                            <div><i class="fas fa-sliders-h me-2"></i>Personalización</div>
+                            <div class="highlight-orange">Limitada (SASS)</div>
+                            <div class="highlight-green">Total</div>
+                        </div>
+                        <div class="summary-row">
+                            <div><i class="fas fa-ruler-combined me-2"></i>Consistencia</div>
+                            <div class="highlight-green">Automática</div>
+                            <div class="highlight-orange">Manual</div>
+                        </div>
+                        <div class="summary-row">
+                            <div><i class="fas fa-graduation-cap me-2"></i>Curva aprendizaje</div>
+                            <div class="highlight-green">Baja</div>
+                            <div class="highlight-orange">Media</div>
+                        </div>
+                        <div class="summary-row">
+                            <div><i class="fas fa-weight-hanging me-2"></i>Tamaño final</div>
+                            <div class="highlight-orange">~150KB</div>
+                            <div class="highlight-green">~10KB (purge)</div>
+                        </div>
+                        <div class="summary-row">
+                            <div><i class="fas fa-rocket me-2"></i>Rapidez desarrollo</div>
+                            <div class="highlight-green">Muy rápida</div>
+                            <div class="highlight-orange">Media (al inicio)</div>
+                        </div>
+                        <div class="summary-row">
+                            <div><i class="fas fa-universal-access me-2"></i>Accesibilidad</div>
+                            <div class="highlight-green">Incluida</div>
+                            <div class="highlight-orange">Manual</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Decision Guide -->
+                <div class="decision-guide">
+                    <h3><i class="fas fa-question-circle me-2"></i>¿Cuál elegir?</h3>
+                    <div class="decision-cards">
+                        <div class="decision-card bootstrap-choice">
+                            <div class="decision-icon">
+                                <i class="fas fa-palette fa-2x"></i>
+                            </div>
+                            <h4>Elige Bootstrap si...</h4>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Quieres desarrollar rápido</li>
+                                <li><i class="fas fa-check-circle"></i> Necesitas consistencia visual</li>
+                                <li><i class="fas fa-check-circle"></i> Prefieres componentes predefinidos</li>
+                                <li><i class="fas fa-check-circle"></i> Trabajas en equipo grande</li>
+                                <li><i class="fas fa-check-circle"></i> Necesitas accesibilidad incluida</li>
+                            </ul>
+                        </div>
+                        <div class="decision-card tailwind-choice">
+                            <div class="decision-icon">
+                                <i class="fas fa-bolt fa-2x"></i>
+                            </div>
+                            <h4>Elige Tailwind si...</h4>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Quieres diseño único</li>
+                                <li><i class="fas fa-check-circle"></i> Necesitas control total</li>
+                                <li><i class="fas fa-check-circle"></i> Te gusta construir desde cero</li>
+                                <li><i class="fas fa-check-circle"></i> Prefieres utilidades sobre componentes</li>
+                                <li><i class="fas fa-check-circle"></i> Buscas máximo rendimiento</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-paint-brush fa-2x"></i>
+                <h4>Galería de Botones</h4>
+            </div>
+            <p>Ejercicio 1 de 3 | Bootstrap vs Tailwind CSS - Aprende frontend con ejemplos prácticos</p>
+            <div class="footer-nav">
+                <span class="current">
+                    <i class="fas fa-paint-brush me-2"></i>01 Galería de Botones
+                </span>
+                <span>
+                    <i class="fas fa-bars me-2"></i>02 Navbar + Hero
+                </span>
+                <span>
+                    <i class="fas fa-tachometer-alt me-2"></i>03 Dashboard Completo
+                </span>
+            </div>
+            <div class="footer-social">
+                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-codepen"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
